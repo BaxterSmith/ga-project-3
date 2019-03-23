@@ -40,3 +40,11 @@ const harpsichord = new Card({
     question: 'What keyboard instrument has a buzzing timbre and is usually associated with 18th-century minuets?',
     answer: 'harpsichord'
 });
+
+Card.remove({})
+    .then(() => Card.create([fermata, cMinor, bagpipe, liszt, timbre, harpsichord]))
+    .then(() => {
+        console.log('Data seeded successfully!');
+        mongoose.connection.close();
+    })
+    .catch(err => console.log(err, 'error!'));
