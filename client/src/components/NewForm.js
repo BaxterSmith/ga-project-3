@@ -14,16 +14,16 @@ class NewForm extends Component {
                        <input type="text" name="category" id="category"/>
                    </div>
                    <div>
-                       <label>Question</label>
-                       <textarea></textarea>
+                       <label for="question">Question</label>
+                       <textarea rows="30" cols="10" name="question" id="question"></textarea>
                    </div>
                    <div>
-                       <label>Answer</label>
-                       <input />
+                       <label for="answer">Answer</label>
+                       <input type="text" name="answer" id="answer"/>
                    </div>
                    <div>
-                       <label>Your Name</label>
-                       <input />
+                       <label for="name">Your Name</label>
+                       <input type="text" name="name" id="name"/>
                    </div>
                    <div>
                        <label for="age">Your Age</label>
