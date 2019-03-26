@@ -4,7 +4,7 @@ class NewForm extends Component {
     render() {
         return (
             <div>
-               <form>
+               <form action="/" method="POST">
                    <div>
                        <label for="skillLevel">Skill Level</label>
                        <input type="text" name="skillLevel" id="skillLevel"/>
@@ -29,6 +29,7 @@ class NewForm extends Component {
                        <label for="age">Your Age</label>
                        <input type="number" name="age" id="age"/>
                    </div>
+                   <input type="submit" value="Add Card"/>
                </form> 
             </div>
         );
