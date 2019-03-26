@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('./connection.js');
 const Card = require('../models/Card.js');
 const User = require('../models/User.js');
 
