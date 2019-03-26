@@ -1,8 +1,6 @@
-require('dotenv').config();
 const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI);
-
-let Card = require('../models/Card.js');
+const Card = require('../models/Card.js');
+const User = require('../models/User.js');
 
 const fermata = new Card({
     skillLevel: 3,
@@ -40,9 +38,18 @@ const harpsichord = new Card({
     question: 'What keyboard instrument has a buzzing timbre and is usually associated with 18th-century minuets?',
     answer: 'harpsichord'
 });
+const baxter = new User({
+    name: 'Baxter Smith',
+    age: 24
+});
+const otto = new User({
+    name: 'Otto Unterzuber',
+    age: 18
+});
 
 Card.remove({})
     .then(() => Card.create([fermata, cMinor, bagpipe, liszt, timbre, harpsichord]))
+    .then(() => User.create([baxter, otto]))
     .then(() => {
         console.log('Data seeded successfully!');
         mongoose.connection.close();
