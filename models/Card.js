@@ -8,4 +8,4 @@ const CardSchema = new Schema({
     answer: String
 });
 
-module.exports = { CardSchema, CardSchema };
+module.exports = mongoose.model('Card', CardSchema);
