@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+const PageStyle = styled.div`
+    background: #ccccff;
+    text-align: center;
+    color: #333;
+`;
+
 class NewForm extends Component {
     state = {
         formData: {
@@ -25,6 +31,7 @@ class NewForm extends Component {
     render() {
         return (
             <div>
+                <PageStyle>
                 <h1>Musi-Cards!</h1>
                 <h2>Create Flash Card</h2>
                <form action="/" method="POST" onSubmit={this.handleSubmit}>
@@ -55,6 +62,7 @@ class NewForm extends Component {
                    <input type="submit" value="Add Card"/>
                </form>
                <Link to="/">Back to Home</Link>
+               </PageStyle>
             </div>
         );
     }
