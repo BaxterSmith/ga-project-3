@@ -18,7 +18,11 @@ This application displays a list of flash cards related to music theory. It allo
 
 ## Link to ERD
 
+https://github.com/BaxterSmith/ga-project-3/blob/master/musicards_erd.JPG
+
 ## Link to Wireframe
+
+https://github.com/BaxterSmith/ga-project-3/blob/master/musicards_wireframe.JPG
 
 ## Link to Trello Board
 
