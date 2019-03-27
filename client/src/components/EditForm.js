@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import styled from 'styled-components';
 
 class EditForm extends Component {
     state = {
@@ -21,7 +22,9 @@ class EditForm extends Component {
     render() {
         return (
             <div>
-                <form action="/" method="POST" onSubmit={this.handleSubmit}>
+                <h1>Musi-Cards!</h1>
+                <h2>Edit Flash Card</h2>
+                <form action="/:cardId?_method=PUT" method="POST" onSubmit={this.handleSubmit}>
                    <div>
                        <label for="skillLevel">Skill Level</label>
                        <input type="text" name="skillLevel" id="skillLevel" onChange={this.handleChange}/>
@@ -48,6 +51,7 @@ class EditForm extends Component {
                    </div>
                    <input type="submit" value="Add Card"/>
                </form>
+               <Link to="/">Back to Home</Link>
             </div>
         );
     }

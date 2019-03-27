@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect, Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 class NewForm extends Component {
     state = {
@@ -24,6 +25,8 @@ class NewForm extends Component {
     render() {
         return (
             <div>
+                <h1>Musi-Cards!</h1>
+                <h2>Create Flash Card</h2>
                <form action="/" method="POST" onSubmit={this.handleSubmit}>
                    <div>
                        <label for="skillLevel">Skill Level</label>
@@ -35,7 +38,7 @@ class NewForm extends Component {
                    </div>
                    <div>
                        <label for="question">Question</label>
-                       <textarea rows="30" cols="10" name="question" id="question" onChange={this.handleChange}></textarea>
+                       <textarea rows="10" cols="30" name="question" id="question" onChange={this.handleChange}></textarea>
                    </div>
                    <div>
                        <label for="answer">Answer</label>
