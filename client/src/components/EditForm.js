@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 
+const PageStyle = styled.div`
+    background: #ccccff;
+    text-align: center;
+    color: #333;
+    padding: 5px;
+`;
+
 class EditForm extends Component {
     state = {
         skillLevel: '',
@@ -52,6 +59,7 @@ class EditForm extends Component {
                    <input type="submit" value="Add Card"/>
                </form>
                <Link to="/">Back to Home</Link>
+               <p>Copyright 2019 Baxter Smith</p>
             </div>
         );
     }

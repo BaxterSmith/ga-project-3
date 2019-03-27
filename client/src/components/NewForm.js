@@ -6,6 +6,7 @@ const PageStyle = styled.div`
     background: #ccccff;
     text-align: center;
     color: #333;
+    padding: 5px;
 `;
 
 class NewForm extends Component {
@@ -62,6 +63,7 @@ class NewForm extends Component {
                    <input type="submit" value="Add Card"/>
                </form>
                <Link to="/">Back to Home</Link>
+               <p>Copyright 2019 Baxter Smith</p>
                </PageStyle>
             </div>
         );

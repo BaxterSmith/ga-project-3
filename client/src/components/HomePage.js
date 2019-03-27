@@ -8,6 +8,7 @@ const PageStyle = styled.div`
     background: #ccccff;
     text-align: center;
     color: #333;
+    padding: 5px;
 `;
 const QuestionList = styled.ul`
     list-style-type: none;
@@ -43,7 +44,10 @@ class HomePage extends Component {
                         <ul>
                             <QuestionList>
                                 {this.state.cards.map((card) => (
-                                    <li><ListItem><a href="/:cardId">{card.question}</a></ListItem></li>
+                                    <li><ListItem>
+                                        <a href="/:cardId">{card.question}</a>
+                                        <br/>Skill Level {card.skillLevel}
+                                    </ListItem></li>
                                 ))}
                             </QuestionList>
                         </ul>

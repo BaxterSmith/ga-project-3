@@ -6,6 +6,7 @@ const PageStyle = styled.div`
     background: #ccccff;
     text-align: center;
     color: #333;
+    padding: 5px;
 `;
 
 class SingleCard extends Component {
@@ -18,6 +19,7 @@ class SingleCard extends Component {
                     <form action="/:cardId?_method=DELETE" method="POST">
                         <input type="submit" value="Delete Card"/>
                     </form>
+                    <p>Copyright 2019 Baxter Smith</p>
                 </PageStyle>
             </div>
         );
