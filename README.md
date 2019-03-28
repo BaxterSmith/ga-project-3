@@ -16,6 +16,10 @@ This application displays a list of flash cards related to music theory. It allo
 
 > React-Router-Dom
 
+> Axios
+
+> Styled Components
+
 ## Link to ERD
 
 https://github.com/BaxterSmith/ga-project-3/blob/master/musicards_erd.JPG
