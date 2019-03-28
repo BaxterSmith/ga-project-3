@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const PageStyle = styled.div`
     background: #ccccff;
@@ -11,12 +12,16 @@ const PageStyle = styled.div`
 
 class EditForm extends Component {
     state = {
-        skillLevel: '',
-        category: '',
-        question: '',
-        answer: '',
-        name: '',
-        age: ''
+        card: {}
+    };
+    componentDidMount = () => {
+        axios.get(`/${this.props.match.params.cardId}`)
+            .then(res => {
+                console.log(res.data)
+                this.setState({
+                    card: res.data
+                });
+            });
     }
     handleChange = (evt) => {
         const clonedFormData = {...this.state.formData}
@@ -29,37 +34,31 @@ class EditForm extends Component {
     render() {
         return (
             <div>
+                <PageStyle>
                 <h1>Musi-Cards!</h1>
                 <h2>Edit Flash Card</h2>
-                <form action="/:cardId?_method=PUT" method="POST" onSubmit={this.handleSubmit}>
+                <form action={`/${this.state.card._id}?_method=PUT`} method="POST" onSubmit={this.handleSubmit}>
                    <div>
                        <label for="skillLevel">Skill Level</label>
-                       <input type="text" name="skillLevel" id="skillLevel" onChange={this.handleChange}/>
+                       <input type="text" name="skillLevel" id="skillLevel" value={this.state.card.skillLevel} onChange={this.handleChange}/>
                    </div>
                    <div>
                        <label for="category">Category</label>
-                       <input type="text" name="category" id="category" onChange={this.handleChange}/>
+                       <input type="text" name="category" id="category" value={this.state.card.category} onChange={this.handleChange}/>
                    </div>
                    <div>
                        <label for="question">Question</label>
-                       <textarea rows="30" cols="10" name="question" id="question" onChange={this.handleChange}></textarea>
+                       <textarea rows="10" cols="30" name="question" id="question" value={this.state.card.question} onChange={this.handleChange}></textarea>
                    </div>
                    <div>
                        <label for="answer">Answer</label>
-                       <input type="text" name="answer" id="answer" onChange={this.handleChange}/>
+                       <input type="text" name="answer" id="answer" value={this.state.card.answer} onChange={this.handleChange}/>
                    </div>
-                   <div>
-                       <label for="name">Your Name</label>
-                       <input type="text" name="name" id="name" onChange={this.handleChange}/>
-                   </div>
-                   <div>
-                       <label for="age">Your Age</label>
-                       <input type="number" name="age" id="age" onChange={this.handleChange}/>
-                   </div>
-                   <input type="submit" value="Add Card"/>
+                   <input type="submit" value="Update Card"/>
                </form>
                <Link to="/">Back to Home</Link>
                <p>Copyright 2019 Baxter Smith</p>
+               </PageStyle>
             </div>
         );
     }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const PageStyle = styled.div`
     background: #ccccff;
@@ -26,10 +27,15 @@ class NewForm extends Component {
         clonedFormData[evt.target.name] = evt.target.value
         this.setState({formData: clonedFormData});
     }
-    handleSubmit(evt) {
+    handleSubmit = async (evt) => {
         evt.preventDefault();
+        await axios.post('/', this.state.formData);
+        this.setState({redirectToHome: true});
     }
     render() {
+        if (this.state.redirectToHome) {
+            return (<Redirect to="/"/>);
+        }
         return (
             <div>
                 <PageStyle>

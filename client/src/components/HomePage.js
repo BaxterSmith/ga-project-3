@@ -45,7 +45,7 @@ class HomePage extends Component {
                             <QuestionList>
                                 {this.state.cards.map((card) => (
                                     <li><ListItem>
-                                        <a href="/:cardId">{card.question}</a>
+                                        <Link to={`/${card._id}`}>{card.question}</Link>
                                         <br/>Skill Level {card.skillLevel}
                                     </ListItem></li>
                                 ))}
