@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 const PageStyle = styled.div`
-    background: #ccccff;
+    background: #33ccff;
     text-align: center;
     color: #333;
     padding: 5px;
@@ -24,7 +24,6 @@ class SingleCard extends Component {
     componentDidMount = () => {
         axios.get(`/${this.props.match.params.cardId}`)
             .then(res => {
-                console.log(res.data)
                 this.setState({
                     card: res.data
                 });
@@ -43,7 +42,7 @@ class SingleCard extends Component {
                             <p>Answer: {this.state.card.answer}</p>
                         </CardStyle>
                     </div>
-                    <a href={`/${this.state.card._id}/edit`}>Edit Card</a>
+                    <Link to={`/${this.state.card._id}/edit`}>Edit Card</Link>
                     <form action={`/${this.state.card._id}?_method=DELETE`} method="POST">
                         <input type="submit" value="Delete Card"/>
                     </form>
